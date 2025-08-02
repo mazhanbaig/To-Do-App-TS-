@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-gradient-to-br from-black via-gray-900 to-black text-white">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeoVerse Settings</title>
+
+    <link href="/output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        futuristic: ['Orbitron', 'sans-serif'],
+                    },
+                    colors: {
+                        neon: '#00FFFF',
+                        purpleglow: '#8A2BE2',
+                        darkbg: '#0a0a23',
+                        card: 'rgba(255, 255, 255, 0.05)',
+                    },
+                    boxShadow: {
+                        neon: '0 0 6px #00FFFF',
+                        glass: '0 2px 10px rgba(0, 0, 0, 0.3)',
+                        purple: '0 0 6px #8A2BE2',
+                        white: '0 0 6px #ffffff88',
+                    },
+                    backdropBlur: {
+                        glass: '12px',
+                    },
+                },
+            },
+        };
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body class="min-h-screen font-futuristic flex flex-col items-center px-4 pt-6 pb-28">
+
+    <!-- 🌌 Navbar
+    <nav
+        class="w-full max-w-5xl bg-gradient-to-r from-[#0f0f1a] via-[#151522] to-[#0f0f1a] border border-gray-700 p-4 rounded-xl shadow-neon flex justify-between items-center mb-10 sticky top-0 z-50 backdrop-blur-glass">
+        <h1
+            class="text-3xl font-extrabold bg-gradient-to-r from-neon to-purpleglow text-transparent bg-clip-text animate-pulse tracking-wider">
+            NeoVerse Settings
+        </h1>
+        <a href="index.html" class="text-gray-300 hover:text-neon text-sm md:text-base transition">← Home</a>
+    </nav> -->
+    <!-- 🌌 Enhanced Navbar -->
+    <nav
+        class="w-full max-w-5xl bg-gradient-to-r from-[#0f0f1a] via-[#151522] to-[#0f0f1a] border border-gray-700 p-4 rounded-xl shadow-neon flex justify-between items-center mb-10 sticky top-0 z-50 backdrop-blur-glass">
+
+        <!-- Logo/Title -->
+        <h1
+            class="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-neon to-purpleglow text-transparent bg-clip-text animate-pulse tracking-wider">
+            NeoVerse
+        </h1>
+
+        <!-- Nav Links -->
+        <div class="flex gap-4 text-sm sm:text-base font-medium">
+            <a href="index.html" class="text-gray-300 hover:text-neon transition">🏠 Home</a>
+            <a href="tasks.html" class="text-gray-300 hover:text-neon transition">✅ Tasks</a>
+            <a href="profile.html" class="text-gray-300 hover:text-neon transition">👤 Profile</a>
+            <a href="settings.html" class="text-neon border-b-2 border-neon pb-1">⚙️ Settings</a>
+        </div>
+    </nav>
+
+
+    <!-- ⚙️ Settings Section -->
+    <section
+        class="w-full max-w-3xl mt-6 p-6 bg-card rounded-2xl shadow-neon backdrop-blur-glass border border-gray-700 space-y-8">
+
+        <div class="text-center">
+            <h2
+                class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-neon to-purpleglow text-transparent bg-clip-text animate-pulse tracking-wide">
+                Customize Your NeoVerse ⚙️
+            </h2>
+            <p class="text-gray-400 mt-2">Personalize your task management experience</p>
+        </div>
+
+        <!-- Theme Selection -->
+        <div class="flex justify-between items-center">
+            <label for="theme" class="text-lg text-white">🌗 Theme</label>
+            <select id="theme"
+                class="bg-gray-900/50 border border-neon text-white px-4 py-2 rounded-lg backdrop-blur focus:outline-none">
+                <option value="dark" selected>Dark</option>
+                <option value="light">Light</option>
+            </select>
+        </div>
+
+        <!-- Notifications Toggle -->
+        <div class="flex justify-between items-center">
+            <span class="text-lg text-white">🔔 Enable Notifications</span>
+            <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" id="notifications" class="sr-only peer" checked>
+                <div
+                    class="w-11 h-6 bg-gray-600 rounded-full peer peer-checked:bg-neon transition-all after:content-[''] after:absolute after:left-[2px] after:top-[2px] after:bg-white after:h-5 after:w-5 after:rounded-full after:transition-all peer-checked:after:translate-x-full">
+                </div>
+            </label>
+        </div>
+
+        <!-- Sorting Preference -->
+        <div class="flex justify-between items-center">
+            <span class="text-lg text-white">🔃 Sort Tasks By</span>
+            <select id="sort"
+                class="bg-gray-900/50 border border-purpleglow text-white px-4 py-2 rounded-lg backdrop-blur focus:outline-none">
+                <option value="date">Date</option>
+                <option value="name">Name</option>
+                <option value="status">Status</option>
+            </select>
+        </div>
+
+        <!-- Reset Button -->
+        <div class="flex justify-between items-center">
+            <span class="text-lg text-red-400">🗑️ Reset All Tasks</span>
+            <button id="resetBtn"
+                class="px-4 py-2 rounded-lg bg-red-500 hover:bg-red-600 transition-all shadow-white text-white">Reset</button>
+        </div>
+
+        <!-- Save Button -->
+        <div class="text-right">
+            <button
+                class="bg-gradient-to-br from-purpleglow to-neon text-black font-bold px-6 py-2 rounded-lg shadow-neon hover:scale-105 transition-all">
+                Save Settings
+            </button>
+        </div>
+    </section>
+
+    <!-- 🧠 Footer -->
+    <footer
+        class="w-full fixed bottom-0 text-center py-4 text-xs text-gray-500 bg-black bg-opacity-30 backdrop-blur-glass">
+        © 2025 NeoVerse — All rights reserved.
+    </footer>
+
+</body>
+
+</html>

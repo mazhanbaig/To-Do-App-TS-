@@ -45,15 +45,25 @@
 
 <body class="min-h-screen font-futuristic flex flex-col items-center px-4 pt-6 pb-28">
 
-    <!-- 🌌 Navbar -->
+    <!-- 🌌 Enhanced Navbar -->
     <nav
         class="w-full max-w-5xl bg-gradient-to-r from-[#0f0f1a] via-[#151522] to-[#0f0f1a] border border-gray-700 p-4 rounded-xl shadow-neon flex justify-between items-center mb-10 sticky top-0 z-50 backdrop-blur-glass">
+
+        <!-- Logo/Title -->
         <h1
-            class="text-3xl font-extrabold bg-gradient-to-r from-neon to-purpleglow text-transparent bg-clip-text animate-pulse tracking-wider">
-            NeoVerse Tasks
+            class="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-neon to-purpleglow text-transparent bg-clip-text animate-pulse tracking-wider">
+            NeoVerse
         </h1>
-        <a href="index.html" class="text-gray-300 hover:text-neon text-sm md:text-base transition">← Home</a>
+
+        <!-- Nav Links -->
+        <div class="flex gap-4 text-sm sm:text-base font-medium">
+            <a href="index.html" class="text-gray-300 hover:text-neon transition">🏠 Home</a>
+            <a href="tasks.html" class="text-gray-300 hover:text-neon transition">✅ Tasks</a>
+            <a href="profile.html" class="text-gray-300 hover:text-neon transition">👤 Profile</a>
+            <a href="settings.html" class="text-neon border-b-2 border-neon pb-1">⚙️ Settings</a>
+        </div>
     </nav>
+
     <!-- 🌌 NeoVerse Task Section -->
     <section
         class="w-full max-w-4xl mt-12 p-6 bg-card rounded-2xl shadow-neon shadow-2xs backdrop-blur-glass border border-gray-700 space-y-8">
