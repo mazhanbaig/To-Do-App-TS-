@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-900 text-white scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeoVerse Task Space</title>
+    <link href="/output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        futuristic: ['Orbitron', 'sans-serif'],
+                    },
+                    colors: {
+                        neon: '#00FFFF',
+                        purpleglow: '#8A2BE2',
+                        darkbg: '#0a0a23',
+                        card: 'rgba(255, 255, 255, 0.05)',
+                    },
+                    boxShadow: {
+                        neon: '0 0 6px #00FFFF',
+                        glass: '0 2px 10px rgba(0, 0, 0, 0.3)',
+                        purple: '0 0 6px #8A2BE2',
+                        white: '0 0 6px #ffffff88',
+                    },
+                    backdropBlur: {
+                        glass: '12px',
+                    },
+                },
+            },
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="min-h-screen font-futuristic flex flex-col items-center px-4 pt-6 pb-28">
+
+    <!-- 🌌 Navbar -->
+    <nav
+        class="w-full max-w-5xl bg-gradient-to-r from-[#0f0f1a] via-[#151522] to-[#0f0f1a] border border-gray-700 p-4 rounded-xl shadow-neon flex justify-between items-center mb-10 sticky top-0 z-50 backdrop-blur-glass">
+        <h1
+            class="text-3xl font-extrabold bg-gradient-to-r from-neon to-purpleglow text-transparent bg-clip-text animate-pulse tracking-wider">
+            NeoVerse Tasks
+        </h1>
+        <a href="task.html" class="text-gray-300 hover:text-neon text-sm md:text-base transition">← Dashboard</a>
+    </nav>
+
+    <!-- 🚀 Hero Section -->
+    <section class="flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-24 md:py-32 gap-10">
+        <!-- TEXT SIDE -->
+        <div class="md:w-[60%] text-center md:text-left space-y-6">
+            <h2
+                class="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-cyan-400 to-purpleglow text-transparent bg-clip-text drop-shadow">
+                Reimagine Your Productivity
+            </h2>
+            <p class="text-lg text-gray-300">
+                NeoVerse is your futuristic personal task space — sleek, organized, and distraction-free.
+            </p>
+            <a href="task.html"
+                class="inline-block px-8 py-4 bg-gradient-to-r from-cyan-500 to-purpleglow hover:from-cyan-400 hover:to-purple-400 text-white text-lg font-bold rounded-full shadow-neon transition-transform hover:scale-105 duration-300">
+                🚀 Launch Task Dashboard
+            </a>
+        </div>
+
+        <!-- IMAGE SIDE (40%) -->
+        <div class="md:w-[40%] flex justify-center">
+            <img src="images/image.jfif" alt="Futuristic Task"
+                class="w-full rounded-2xl border-2 border-neon shadow-neon hover:scale-105 transition-transform duration-500" />
+        </div>
+    </section>
+
+    <!-- 🌠 Footer -->
+    <footer class="w-full bg-gray-900 text-center text-gray-400 text-sm py-6">
+        &copy; 2025 NeoVerse — Built for the Future.
+    </footer>
+    <script src="./app.js" defer></script>
+
+</body>
+
+</html>

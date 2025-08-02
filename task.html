@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-gradient-to-br from-black via-gray-900 to-black text-white">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeoVerse Task Space</title>
+
+    <!-- Tailwind CSS -->
+    <link href="/output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        futuristic: ['Orbitron', 'sans-serif'],
+                    },
+                    colors: {
+                        neon: '#00FFFF',
+                        purpleglow: '#8A2BE2',
+                        darkbg: '#0a0a23',
+                        card: 'rgba(255, 255, 255, 0.05)',
+                    },
+                    boxShadow: {
+                        neon: '0 0 6px #00FFFF',
+                        glass: '0 2px 10px rgba(0, 0, 0, 0.3)',
+                        purple: '0 0 6px #8A2BE2',
+                        white: '0 0 6px #ffffff88',
+                    },
+                    backdropBlur: {
+                        glass: '12px',
+                    },
+                },
+            },
+        };
+    </script>
+
+
+    <!-- Orbitron Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body class="min-h-screen font-futuristic flex flex-col items-center px-4 pt-6 pb-28">
+
+    <!-- 🌌 Navbar -->
+    <nav
+        class="w-full max-w-5xl bg-gradient-to-r from-[#0f0f1a] via-[#151522] to-[#0f0f1a] border border-gray-700 p-4 rounded-xl shadow-neon flex justify-between items-center mb-10 sticky top-0 z-50 backdrop-blur-glass">
+        <h1
+            class="text-3xl font-extrabold bg-gradient-to-r from-neon to-purpleglow text-transparent bg-clip-text animate-pulse tracking-wider">
+            NeoVerse Tasks
+        </h1>
+        <a href="index.html" class="text-gray-300 hover:text-neon text-sm md:text-base transition">← Home</a>
+    </nav>
+    <!-- 🌌 NeoVerse Task Section -->
+    <section
+        class="w-full max-w-4xl mt-12 p-6 bg-card rounded-2xl shadow-neon shadow-2xs backdrop-blur-glass border border-gray-700 space-y-8">
+
+        <!-- 🚀 Section Title -->
+        <div class="text-center">
+            <h2
+                class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-neon to-purpleglow text-transparent bg-clip-text animate-pulse tracking-wide">
+                Manage Your Missions 🚀
+            </h2>
+            <p class="text-gray-400 mt-2">Stay organized in the NeoVerse</p>
+        </div>
+
+        <!-- 🔮 Task Input Area -->
+        <div class="flex flex-col sm:flex-row items-center gap-4">
+            <input id="task" type="text" placeholder="Type a new mission..."
+                class="flex-1 px-4 py-3 rounded-lg bg-black bg-opacity-30 border border-neon text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-neon backdrop-blur">
+            <button id="addBtn"
+                class="px-6 py-3 rounded-lg bg-gradient-to-br from-purpleglow to-neon text-white shadow-neon hover:scale-105 transition-all duration-300">
+                Add Mission
+            </button>
+        </div>
+
+        <!-- 🧠 Task Stats (Optional) -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+            <div
+                class="bg-gray-900/60 p-4 rounded-xl border border-neon backdrop-blur shadow-md hover:shadow-neon transition">
+                <h3 class="text-neon font-semibold text-sm">Total</h3>
+                <p class="text-2xl font-bold">12</p>
+            </div>
+            <div
+                class="bg-gray-900/60 p-4 rounded-xl border border-purpleglow backdrop-blur shadow-md hover:shadow-purple transition">
+                <h3 class="text-purpleglow font-semibold text-sm">Completed</h3>
+                <p class="text-2xl font-bold">5</p>
+            </div>
+            <div
+                class="bg-gray-900/60 p-4 rounded-xl border border-gray-500 backdrop-blur shadow-md hover:shadow-white transition">
+                <h3 class="text-gray-300 font-semibold text-sm">Pending</h3>
+                <p class="text-2xl font-bold">7</p>
+            </div>
+        </div>
+
+        <!-- 📋 Task List -->
+        <div id="taskList" class="space-y-4">
+            <!-- Example Task -->
+            <div
+                class="flex justify-between items-center bg-black bg-opacity-40 p-4 rounded-lg border-l-4 border-neon backdrop-blur hover:shadow-neon transition-all duration-200">
+                <span class="text-white">🛸 Rescue operation on Mars</span>
+                <button class="text-red-400 hover:text-red-600 font-extrabold text-lg transition">✕</button>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- 🧠 Footer -->
+    <footer
+        class="w-full fixed bottom-0 text-center py-4 text-xs text-gray-500 bg-black bg-opacity-30 backdrop-blur-glass">
+        © 2025 NeoVerse — All rights reserved.
+    </footer>
+<script src="task.js"></script>
+</body>
+
+</html>
