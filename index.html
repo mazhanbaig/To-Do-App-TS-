@@ -38,26 +38,38 @@
 
 <body class="min-h-screen font-futuristic flex flex-col items-center px-4 pt-6 pb-28">
 
-    <!-- 🌌 Enhanced Navbar -->
+    <!-- 🌌 Enhanced Responsive Navbar -->
     <nav
-        class="w-full max-w-5xl bg-gradient-to-r from-[#0f0f1a] via-[#151522] to-[#0f0f1a] border border-gray-700 p-4 rounded-xl shadow-neon flex justify-between items-center mb-10 sticky top-0 z-50 backdrop-blur-glass">
+        class="w-full max-w-5xl mx-auto bg-gradient-to-r from-[#0f0f1a] via-[#151522] to-[#0f0f1a] border border-gray-700 p-4 rounded-xl shadow-neon sticky top-0 z-50 backdrop-blur-glass">
+        <div class="flex justify-between items-center">
+            <!-- Logo/Title -->
+            <h1
+                class="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-neon to-purpleglow text-transparent bg-clip-text animate-pulse tracking-wider">
+                NeoVerse
+            </h1>
 
-        <!-- Logo/Title -->
-        <h1
-            class="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-neon to-purpleglow text-transparent bg-clip-text animate-pulse tracking-wider">
-            NeoVerse
-        </h1>
+            <!-- Hamburger Icon (Mobile) -->
+            <button id="menu-btn" class="sm:hidden text-neon focus:outline-none text-2xl">
+                ☰
+            </button>
 
-        <!-- Nav Links -->
-        <div class="flex gap-4 text-sm sm:text-base font-medium">
+            <!-- Nav Links (Desktop) -->
+            <div id="nav-links" class="hidden sm:flex gap-4 text-sm sm:text-base font-medium">
+                <a href="index.html" class="text-gray-300 hover:text-neon transition">🏠 Home</a>
+                <a href="task.html" class="text-gray-300 hover:text-neon transition">✅ Tasks</a>
+                <a href="profile.html" class="text-gray-300 hover:text-neon transition">👤 Profile</a>
+                <a href="settings.html" class="text-neon border-b-2 border-neon pb-1">⚙️ Settings</a>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="sm:hidden mt-4 hidden flex-col gap-3 text-sm font-medium">
             <a href="index.html" class="text-gray-300 hover:text-neon transition">🏠 Home</a>
-            <a href="tasks.html" class="text-gray-300 hover:text-neon transition">✅ Tasks</a>
+            <a href="task.html" class="text-gray-300 hover:text-neon transition">✅ Tasks</a>
             <a href="profile.html" class="text-gray-300 hover:text-neon transition">👤 Profile</a>
             <a href="settings.html" class="text-neon border-b-2 border-neon pb-1">⚙️ Settings</a>
         </div>
     </nav>
-
-
     <!-- 🚀 Hero Section -->
     <section class="flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-24 md:py-32 gap-10">
         <!-- TEXT SIDE -->

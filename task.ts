@@ -94,3 +94,18 @@ addButton.addEventListener("click", addTask);
 taskInput.addEventListener("keypress", (e: KeyboardEvent) => {
   if (e.key === "Enter") addTask();
 });
+// navbar
+// 🎯 Navbar Toggle (Make sure this is included)
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.getElementById("menu-btn") as HTMLButtonElement | null;
+  const mobileMenu = document.getElementById("mobile-menu") as HTMLDivElement | null;
+
+  if (!menuBtn || !mobileMenu) {
+    console.warn("Navbar elements not found.");
+    return;
+  }
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+});
