@@ -20,15 +20,11 @@ themeSelect.addEventListener("change", (e) => {
 
 // 🧠 Apply light or dark theme to <html>
 function applyTheme(theme: string) {
-  const root = document.documentElement;
-  if (theme === "light") {
-    root.classList.remove("bg-gradient-to-br", "from-black", "via-gray-900", "to-black", "text-white");
-    root.classList.add("bg-white", "text-black");
-  } else {
-    root.classList.add("bg-gradient-to-br", "from-black", "via-gray-900", "to-black", "text-white");
-    root.classList.remove("bg-white", "text-black");
-  }
+  const html = document.documentElement;
+  html.classList.remove("light");
+  html.classList.add(theme);
 }
+
 
 // 🗑️ Reset all tasks
 resetBtn.addEventListener("click", () => {
@@ -38,3 +34,13 @@ resetBtn.addEventListener("click", () => {
     alert("All tasks have been reset.");
   }
 });
+
+  // ✅ Navbar Toggle
+  const menuBtn = document.getElementById("menu-btn") as HTMLButtonElement | null;
+  const mobileMenu = document.getElementById("mobile-menu") as HTMLDivElement | null;
+
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  }

@@ -9,6 +9,50 @@
     <link href="/output.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <style>
+        /* Light Mode Styles */
+        html.light {
+            background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
+            color: #111111;
+        }
+
+        html.light body {
+            background-color: #ffffff;
+            color: #111;
+        }
+
+        html.light .navbar {
+            background: linear-gradient(to right, #f9f9f9, #e0e0e0);
+            border-color: #ccc;
+            box-shadow: 0 0 8px #999;
+        }
+
+        html.light .text-gradient {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        html.light .box {
+            background-color: rgba(0, 0, 0, 0.05);
+            border-color: #ccc;
+            box-shadow: 0 0 10px #aaa;
+            color: black;
+        }
+
+        html.light select,
+        html.light button {
+            background-color: #f9f9f9;
+            color: #111;
+            border-color: #999;
+        }
+
+        html.light .footer {
+            background: rgba(240, 240, 240, 0.6);
+            color: #666;
+        }
+    </style>
+
     <!-- Tailwind Custom Config -->
     <script>
         tailwind.config = {
@@ -42,16 +86,34 @@
 
 <body class="min-h-screen font-futuristic flex flex-col items-center px-4 pt-6 pb-28">
     <nav
-        class="w-full max-w-5xl bg-gradient-to-r from-[#0f0f1a] via-[#151522] to-[#0f0f1a] border border-gray-700 p-4 rounded-xl shadow-neon flex justify-between items-center mb-10 sticky top-0 z-50 backdrop-blur-glass">
+        class="w-full max-w-5xl mx-auto  border border-gray-700 p-4 rounded-xl shadow-neon sticky top-0 z-50 backdrop-blur-glass">
+        <div class="flex justify-between items-center">
+            <!-- Logo/Title -->
+            <h1
+                class="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-neon to-purpleglow text-transparent bg-clip-text animate-pulse tracking-wider">
+                NeoVerse
+            </h1>
 
-        <!-- Logo/Title -->
-        <h1
-            class="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-neon to-purpleglow text-transparent bg-clip-text animate-pulse tracking-wider">
-            NeoVerse
-        </h1>
+            <!-- Hamburger Icon (Mobile) -->
+            <button id="menu-btn" class="sm:hidden text-neon focus:outline-none text-2xl">
+                ☰
+            </button>
 
-        <!-- Nav Links -->
-        <div class="flex gap-4 text-sm sm:text-base font-medium">
+            <!-- Nav Links (Desktop) -->
+            <div id="nav-links" class="hidden sm:flex gap-4 text-sm sm:text-base font-medium">
+                <a href="index.html" class="hover:text-neon">
+                    Home</a>
+                <a href="task.html" class="hover:text-neon">
+                    Tasks</a>
+                <a href="profile.html" class="hover:text-neon">
+                    Profile</a>
+                <a href="settings.html" class="border-b-2 pb-1  border-neon ">
+                    Settings</a>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="sm:hidden mt-4 hidden flex-col gap-3 text-sm font-medium">
             <a href="index.html" class="text-gray-300 hover:text-neon transition"> Home</a>
             <a href="task.html" class="text-gray-300 hover:text-neon transition"> Tasks</a>
             <a href="profile.html" class="text-gray-300 hover:text-neon transition"> Profile</a>
@@ -62,19 +124,19 @@
 
     <!-- ⚙️ Settings Section -->
     <section
-        class="w-full max-w-3xl mt-6 p-6 bg-card rounded-2xl shadow-neon backdrop-blur-glass border border-gray-700 space-y-8">
+        class="box w-full max-w-3xl mt-6 p-6  rounded-2xl shadow-neon backdrop-blur-glass border border-gray-700 space-y-8">
 
         <div class="text-center">
             <h2
                 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-neon to-purpleglow text-transparent bg-clip-text animate-pulse tracking-wide">
-                Customize Your NeoVerse 
+                Customize Your NeoVerse
             </h2>
             <p class="text-gray-400 mt-2">Personalize your task management experience</p>
         </div>
 
         <!-- Theme Selection -->
         <div class="flex justify-between items-center">
-            <label for="theme" class="text-lg text-white">🌗 Theme</label>
+            <label for="theme" class="text-lg ">🌗 Theme</label>
             <select id="theme"
                 class="bg-gray-900/50 border border-neon text-white px-4 py-2 rounded-lg backdrop-blur focus:outline-none">
                 <option value="dark" selected>Dark</option>
@@ -84,7 +146,7 @@
 
         <!-- Notifications Toggle -->
         <div class="flex justify-between items-center">
-            <span class="text-lg text-white">🔔 Enable Notifications</span>
+            <span class="text-lg">🔔 Enable Notifications</span>
             <label class="relative inline-flex items-center cursor-pointer">
                 <input type="checkbox" id="notifications" class="sr-only peer" checked>
                 <div
@@ -95,7 +157,7 @@
 
         <!-- Sorting Preference -->
         <div class="flex justify-between items-center">
-            <span class="text-lg text-white">🔃 Sort Tasks By</span>
+            <span class="text-lg ">🔃 Sort Tasks By</span>
             <select id="sort"
                 class="bg-gray-900/50 border border-purpleglow text-white px-4 py-2 rounded-lg backdrop-blur focus:outline-none">
                 <option value="date">Date</option>
@@ -125,7 +187,7 @@
         class="w-full fixed bottom-0 text-center py-4 text-xs text-gray-500 bg-black bg-opacity-30 backdrop-blur-glass">
         © 2025 NeoVerse — All rights reserved.
     </footer>
-<script src="setting.js"></script>
+    <script src="setting.js"></script>
 </body>
 
 </html>
