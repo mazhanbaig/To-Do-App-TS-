@@ -90,20 +90,43 @@
         <div class="text-center">
             <h2
                 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-neon to-purpleglow text-transparent bg-clip-text animate-pulse tracking-wide">
-                Manage Your Missions 
+                Manage Your Missions
             </h2>
             <p class="text-gray-400 mt-2">Stay organized in the NeoVerse</p>
         </div>
 
         <!-- 🔮 Task Input Area -->
-        <div class="flex flex-col sm:flex-row items-center gap-4">
-            <input id="task" type="text" placeholder="Type a new mission..."
-                class="flex-1 px-4 py-3 rounded-lg bg-black bg-opacity-30 border border-neon text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-neon backdrop-blur">
-            <button id="addBtn"
-                class="px-6 py-3 rounded-lg bg-gradient-to-br from-purpleglow to-neon text-white shadow-neon hover:scale-105 transition-all duration-300">
-                Add Mission
-            </button>
+        <div class="flex flex-col gap-4">
+            <!-- Task Title + Add Button -->
+            <div class="flex flex-col sm:flex-row items-center gap-4">
+                <input id="task" type="text" placeholder="Type a new mission..."
+                    class="flex-1 px-4 py-3 rounded-lg bg-black bg-opacity-30 border border-neon text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-neon backdrop-blur">
+                <button id="addBtn"
+                    class="px-6 py-3 rounded-lg bg-gradient-to-br from-purpleglow to-neon text-white shadow-neon hover:scale-105 transition-all duration-300">
+                    Add Mission
+                </button>
+            </div>
+
+            <!-- 📆 Extra Inputs for Date, Priority, and Description -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <input id="taskDate" type="date"
+                    class="px-4 py-3 rounded-lg bg-black bg-opacity-30 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-neon placeholder:text-gray-400 backdrop-blur"
+                    placeholder="Due Date">
+
+                <select id="taskPriority"
+                    class="px-4 py-3 rounded-lg bg-black bg-opacity-30 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-neon placeholder:text-gray-400 backdrop-blur">
+                    <option value="" disabled selected>Select Priority</option>
+                    <option value="High">🔥 High</option>
+                    <option value="Medium">⚡ Medium</option>
+                    <option value="Low">🧊 Low</option>
+                </select>
+
+                <input id="taskDesc" type="text"
+                    class="px-4 py-3 rounded-lg bg-black bg-opacity-30 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-neon placeholder:text-gray-400 backdrop-blur"
+                    placeholder="Optional description...">
+            </div>
         </div>
+
 
         <!-- 🧠 Task Stats (Optional) -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">

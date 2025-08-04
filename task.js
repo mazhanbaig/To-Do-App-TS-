@@ -18,6 +18,12 @@
 // // 🚀 Add a Task
 // function addTask(): void {
 //   const taskText = taskInput.value.trim();
+//   const isDuplicate = tasks.some(t => t.name.toLowerCase() === taskText.toLowerCase());
+//   if (isDuplicate) {
+//   taskInput.value="";
+//   alert("This task already exists!");
+//   return;
+//   }
 //   if (!taskText) return;
 //   const newTask: Task = {
 //     id: Date.now(),
@@ -27,14 +33,20 @@
 //   };
 //   tasks.push(newTask);
 //   taskInput.value = "";
-//   if(localStorage.getItem("taskList")){
-//     localStorage.setItem(JSON.stringify(tasks),taskList)
-//   } 
-//   else{
-//     localStorage.setItem(taskList,JSON.stringify(tasks))
-//   }
+//   saveTasksToStorage();
 //   renderTasks();
 //   updateStats();
+// }
+// // 💾 Save Tasks to localStorage
+// function saveTasksToStorage(): void {
+//   localStorage.setItem("taskList", JSON.stringify(tasks));
+// }
+// // 📦 Load Tasks from localStorage
+// function loadTasksFromStorage(): void {
+//   const saved = localStorage.getItem("taskList");
+//   if (saved) {
+//     tasks = JSON.parse(saved);
+//   }
 // }
 // // 🖌️ Render All Tasks
 // function renderTasks(): void {
@@ -45,9 +57,8 @@
 //       "flex justify-between items-center bg-black bg-opacity-40 p-4 rounded-lg border-l-4 border-neon backdrop-blur hover:shadow-[0_0_6px_#00FFFF] transition-all duration-200";
 //     taskDiv.innerHTML = `
 //       <div>
-//         <span class="text-white font-semibold ${
-//           task.status === "completed" ? "line-through text-green-400" : ""
-//         }">${task.name}</span>
+//         <span class="text-white font-semibold ${task.status === "completed" ? "line-through text-green-400" : ""
+//       }">${task.name}</span>
 //         <div class="text-xs text-gray-400">${task.date}</div>
 //       </div>
 //       <div class="flex gap-4">
@@ -59,6 +70,7 @@
 //     const completeBtn = taskDiv.querySelector(".complete-btn") as HTMLButtonElement;
 //     completeBtn.addEventListener("click", () => {
 //       task.status = task.status === "pending" ? "completed" : "pending";
+//       saveTasksToStorage();
 //       renderTasks();
 //       updateStats();
 //     });
@@ -66,6 +78,7 @@
 //     const deleteBtn = taskDiv.querySelector(".delete-btn") as HTMLButtonElement;
 //     deleteBtn.addEventListener("click", () => {
 //       tasks = tasks.filter((t) => t.id !== task.id);
+//       saveTasksToStorage();
 //       renderTasks();
 //       updateStats();
 //     });
@@ -86,21 +99,26 @@
 // taskInput.addEventListener("keypress", (e: KeyboardEvent) => {
 //   if (e.key === "Enter") addTask();
 // });
-// // navbar
-// // 🎯 Navbar Toggle (Make sure this is included)
+// // 📦 Load on DOM Ready
 // document.addEventListener("DOMContentLoaded", () => {
+//   // Load saved tasks
+//   loadTasksFromStorage();
+//   renderTasks();
+//   updateStats();
+//   // ✅ Navbar Toggle
 //   const menuBtn = document.getElementById("menu-btn") as HTMLButtonElement | null;
 //   const mobileMenu = document.getElementById("mobile-menu") as HTMLDivElement | null;
-//   if (!menuBtn || !mobileMenu) {
-//     console.warn("Navbar elements not found.");
-//     return;
+//   if (menuBtn && mobileMenu) {
+//     menuBtn.addEventListener("click", () => {
+//       mobileMenu.classList.toggle("hidden");
+//     });
 //   }
-//   menuBtn.addEventListener("click", () => {
-//     mobileMenu.classList.toggle("hidden");
-//   });
 // });
 // 🌐 DOM Elements
 const taskInput = document.getElementById("task");
+const taskDateInput = document.getElementById("taskDate");
+const taskPriorityInput = document.getElementById("taskPriority");
+const taskDescInput = document.getElementById("taskDesc");
 const addButton = document.getElementById("addBtn");
 const taskList = document.getElementById("taskList");
 const totalTaskBox = document.querySelector("#total p");
@@ -111,16 +129,31 @@ let tasks = [];
 // 🚀 Add a Task
 function addTask() {
     const taskText = taskInput.value.trim();
+    const taskDate = taskDateInput.value;
+    const taskPriority = taskPriorityInput.value;
+    const taskDesc = taskDescInput.value.trim();
+    const isDuplicate = tasks.some(t => t.name.toLowerCase() === taskText.toLowerCase());
+    if (isDuplicate) {
+        taskInput.value = "";
+        alert("This task already exists!");
+        return;
+    }
     if (!taskText)
         return;
     const newTask = {
         id: Date.now(),
         name: taskText,
-        date: new Date().toLocaleDateString(),
+        date: taskDate || new Date().toLocaleDateString(),
+        priority: taskPriority || "Medium",
+        description: taskDesc || "",
         status: "pending",
     };
     tasks.push(newTask);
+    // Clear input fields
     taskInput.value = "";
+    taskDateInput.value = "";
+    taskPriorityInput.value = "";
+    taskDescInput.value = "";
     saveTasksToStorage();
     renderTasks();
     updateStats();
@@ -144,15 +177,45 @@ function renderTasks() {
         taskDiv.className =
             "flex justify-between items-center bg-black bg-opacity-40 p-4 rounded-lg border-l-4 border-neon backdrop-blur hover:shadow-[0_0_6px_#00FFFF] transition-all duration-200";
         taskDiv.innerHTML = `
-      <div>
-        <span class="text-white font-semibold ${task.status === "completed" ? "line-through text-green-400" : ""}">${task.name}</span>
-        <div class="text-xs text-gray-400">${task.date}</div>
+  <!-- Single Task Container -->
+  <div class="group bg-gradient-to-br from-gray-950 via-black to-gray-900 border border-cyan-500/20 rounded-xl p-4 w-full transition-all duration-500 hover:shadow-cyan-500/20 hover:shadow-lg focus-within:shadow-cyan-500/30">
+
+    <!-- Title + Priority -->
+    <div class="flex justify-between items-center mb-2">
+      <h3 class="text-lg md:text-xl font-semibold tracking-wide ${task.status === "completed" ? "line-through text-green-400" : "text-cyan-300"}">${task.name}</h3>
+
+      <span class="text-xs md:text-sm uppercase px-3 py-1 rounded-full border ${task.priority === "High"
+            ? "border-red-500 text-red-400"
+            : task.priority === "Medium"
+                ? "border-yellow-500 text-yellow-400"
+                : "border-green-500 text-green-400"} glow-shadow">${task.priority}</span>
+    </div>
+
+    <!-- Expandable Details on Hover / Focus -->
+    <div class="opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-64 group-focus-within:opacity-100 group-focus-within:max-h-64 transition-all duration-500 ease-in-out overflow-hidden space-y-2 text-sm text-gray-300">
+
+      <!-- Date -->
+      <div class="flex items-center gap-2">
+        <span class="text-cyan-400">📅</span>
+        <span>${task.date || "No due date"}</span>
       </div>
-      <div class="flex gap-4">
-        <button class="complete-btn text-green-400 hover:text-green-600 font-bold">✔</button>
-        <button class="delete-btn text-red-400 hover:text-red-600 font-extrabold text-lg">✕</button>
+
+      <!-- Description -->
+      ${task.description
+            ? `<div class="flex gap-2">
+               <span class="text-pink-400">📝</span>
+               <p class="line-clamp-3">${task.description}</p> 
+             </div>`
+            : ""}
+
+      <!-- Buttons -->
+      <div class="flex gap-4 pt-3">
+        <button class="complete-btn text-green-400 hover:text-green-500 font-semibold">✔ Complete</button>
+        <button class="delete-btn text-red-400 hover:text-red-500 font-semibold">✕ Delete</button>
       </div>
-    `;
+    </div>
+  </div>
+`;
         // ✅ Complete Button
         const completeBtn = taskDiv.querySelector(".complete-btn");
         completeBtn.addEventListener("click", () => {
@@ -189,7 +252,6 @@ taskInput.addEventListener("keypress", (e) => {
 });
 // 📦 Load on DOM Ready
 document.addEventListener("DOMContentLoaded", () => {
-    // Load saved tasks
     loadTasksFromStorage();
     renderTasks();
     updateStats();
