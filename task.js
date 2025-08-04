@@ -204,7 +204,7 @@ function renderTasks() {
       ${task.description
             ? `<div class="flex gap-2">
                <span class="text-pink-400">📝</span>
-               <p class="line-clamp-3">${task.description}</p> 
+               <p class="line-clamp-3">${task.description}</p>
              </div>`
             : ""}
 
