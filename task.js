@@ -1,3 +1,4 @@
+"use strict";
 // 🌐 DOM Elements
 const taskInput = document.getElementById("task");
 const taskDateInput = document.getElementById("taskDate");
@@ -148,4 +149,3 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
-export {};

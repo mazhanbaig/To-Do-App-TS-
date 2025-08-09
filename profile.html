@@ -37,22 +37,60 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 
-<body class="min-h-screen font-futuristic flex flex-col items-center px-4 pt-6 pb-28">
+<body class="bg-black min-h-screen font-futuristic flex flex-col items-center px-4 pt-6 pb-28">
 
-    <!-- 🌌 Navbar -->
+    <!-- 🌌 Enhanced Responsive Navbar -->
     <nav
-        class="w-full max-w-5xl mx-auto bg-gradient-to-r from-[#0f0f1a] via-[#151522] to-[#0f0f1a] border border-gray-700 p-4 rounded-xl shadow-neon sticky top-0 z-50 backdrop-blur">
+        class="bg-black w-full max-w-5xl mx-auto border border-gray-700 p-4 rounded-xl shadow-neon sticky top-0 z-50 backdrop-blur-glass">
         <div class="flex justify-between items-center">
+            <!-- Logo/Title -->
             <h1
                 class="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-neon to-purpleglow text-transparent bg-clip-text animate-pulse tracking-wider">
                 NeoVerse
             </h1>
-            <div class="hidden sm:flex gap-4 text-sm sm:text-base font-medium">
-                <a href="index.html" class="text-gray-300 hover:text-neon">Home</a>
-                <a href="task.html" class="text-gray-300 hover:text-neon">Tasks</a>
-                <a href="profile.html" class="text-neon border-b-2 border-neon">Profile</a>
-                <a href="settings.html" class="text-gray-300 hover:text-neon">Settings</a>
+
+            <!-- Hamburger Icon (Mobile) -->
+            <button id="menu-btn" class="sm:hidden text-neon focus:outline-none text-2xl">
+                ☰
+            </button>
+
+            <!-- Nav Links (Desktop) -->
+            <div id="nav-links" class="hidden sm:flex gap-4 text-sm sm:text-base font-medium">
+                <a href="index.html"
+                    class="text-gray-300 hover:text-neon focus:text-neon focus:border-b-2 border-neon pb-1 ">
+                    Home</a>
+                <a href="task.html"
+                    class="text-gray-300 hover:text-neon focus:text-neon focus:border-b-2 border-neon pb-1 ">
+                    Tasks</a>
+                <a href="profile.html"
+                    class="text-gray-300 hover:text-neon focus:text-neon focus:border-b-2 border-neon pb-1 ">
+                    Profile</a>
+                <a href="settings.html"
+                    class="text-gray-300 border-b-2 border-neon hover:text-neon focus:text-neon focus:border-b-2 border-neon pb-1 ">
+                    Settings</a>
             </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="absolute right-4 mt-2 hidden flex-col text-sm font-medium bg-gradient-to-br from-[#0f0f1a] via-[#151522] to-[#0f0f1a] border border-gray-700 rounded-lg shadow-neon p-4 w-40 z-50">
+
+            <a href="index.html"
+                class="block text-gray-300 hover:text-neon focus:text-neon hover:border-b-2 focus:border-b-2 border-neon pb-1 transition">
+                Home
+            </a>
+            <a href="task.html"
+                class="block text-gray-300 hover:text-neon focus:text-neon hover:border-b-2 focus:border-b-2 border-neon pb-1 transition">
+                Tasks
+            </a>
+            <a href="profile.html"
+                class="block text-gray-300 hover:text-neon focus:text-neon hover:border-b-2 focus:border-b-2 border-neon pb-1 transition">
+                Profile
+            </a>
+            <a href="settings.html"
+                class="block text-gray-300 hover:text-neon focus:text-neon hover:border-b-2 focus:border-b-2 border-neon pb-1 transition">
+                Settings
+            </a>
         </div>
     </nav>
 

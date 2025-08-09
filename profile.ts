@@ -113,5 +113,16 @@ document.addEventListener("DOMContentLoaded", () => {
     showForm();
   });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.getElementById("menu-btn") as HTMLButtonElement | null;
+  const mobileMenu = document.getElementById("mobile-menu") as HTMLDivElement | null;
 
-export {};
+  if (!menuBtn || !mobileMenu) {
+    console.warn("Navbar elements not found.");
+    return;
+  }
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+});
