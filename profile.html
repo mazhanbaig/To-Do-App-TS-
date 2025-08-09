@@ -80,17 +80,17 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
             <div class="bg-gray-900/60 p-4 rounded-xl border border-neon backdrop-blur hover:shadow-neon transition">
                 <h3 class="text-neon font-semibold text-sm">Total Missions</h3>
-                <p class="text-2xl font-bold"></p>
+                <p id="totalTaskBox" class="text-2xl font-bold"></p>
             </div>
             <div
                 class="bg-gray-900/60 p-4 rounded-xl border border-purpleglow backdrop-blur hover:shadow-purple transition">
                 <h3 class="text-purpleglow font-semibold text-sm">Completed</h3>
-                <p class="text-2xl font-bold"></p>
+                <p id="totalCompletedBox" class="text-2xl font-bold"></p>
             </div>
             <div
                 class="bg-gray-900/60 p-4 rounded-xl border border-gray-500 backdrop-blur hover:shadow-white transition">
                 <h3 class="text-gray-300 font-semibold text-sm">Pending</h3>
-                <p class="text-2xl font-bold"></p>
+                <p id="totalPendingBox" class="text-2xl font-bold"></p>
             </div>
         </div>
 
@@ -104,6 +104,11 @@
             <div>
                 <label class="block text-gray-300 text-sm mb-1">Email</label>
                 <input type="email" value=""
+                    class="w-full px-4 py-3 rounded-lg bg-black bg-opacity-30 border border-neon text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-neon" />
+            </div>
+            <div>
+                <label class="block text-gray-300 text-sm mb-1">Passion</label>
+                <input type="text" id="passionInput" placeholder="Your passion"
                     class="w-full px-4 py-3 rounded-lg bg-black bg-opacity-30 border border-neon text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-neon" />
             </div>
             <div>
