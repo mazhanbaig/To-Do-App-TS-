@@ -10,3 +10,16 @@ document.addEventListener("DOMContentLoaded", () => {
         mobileMenu.classList.toggle("hidden");
     });
 });
+// theme 
+document.addEventListener("DOMContentLoaded", () => {
+    let savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+        applyTheme(savedTheme);
+    }
+});
+function applyTheme(theme) {
+    const html = document.documentElement;
+    html.classList.remove("light");
+    html.classList.add(theme);
+}
+// done end

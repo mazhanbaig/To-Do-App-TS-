@@ -21,10 +21,26 @@
             color: #111;
         }
 
-        html.light .navbar {
-            background: linear-gradient(to right, #f9f9f9, #e0e0e0);
+        html.light nav {
+            background: linear-gradient(to right, #f9f9f9, #e8e8e8);
             border-color: #ccc;
-            box-shadow: 0 0 8px #999;
+            box-shadow: 0 0 10px #bbb;
+        }
+
+        html.light nav a {
+            color: #333;
+        }
+
+        html.light nav a:hover,
+        html.light nav a:focus {
+            color: #2575fc;
+            border-color: #2575fc;
+        }
+
+        /* Mobile menu */
+        html.light #mobile-menu {
+            background: linear-gradient(to bottom right, #ffffff, #f2f2f2);
+            border-color: #ccc;
         }
 
         html.light .text-gradient {
@@ -40,12 +56,18 @@
             color: black;
         }
 
-        html.light select,
-        html.light button {
+        html.light select {
             background-color: #f9f9f9;
             color: #111;
             border-color: #999;
         }
+
+        html.light button {
+            /* background-color: #f9f9f9; */
+            color: #111;
+            border-color: #999;
+        }
+
 
         html.light .footer {
             background: rgba(240, 240, 240, 0.6);
@@ -87,7 +109,7 @@
 <body class="bg-black min-h-screen font-futuristic flex flex-col items-center px-4 pt-6 pb-28">
     <!-- 🌌 Enhanced Responsive Navbar -->
     <nav
-        class="bg-black w-full max-w-5xl mx-auto border border-gray-700 p-4 rounded-xl shadow-neon sticky top-0 z-50 backdrop-blur-glass">
+        class=" w-full max-w-5xl mx-auto border border-gray-700 p-4 rounded-xl shadow-neon sticky top-0 z-50 backdrop-blur-glass">
         <div class="flex justify-between items-center">
             <!-- Logo/Title -->
             <h1
@@ -120,7 +142,7 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu"
             class="absolute right-4 mt-2 hidden flex-col text-sm font-medium bg-gradient-to-br from-[#0f0f1a] via-[#151522] to-[#0f0f1a] border border-gray-700 rounded-lg shadow-neon p-4 w-40 z-50">
-        
+
             <a href="index.html"
                 class="block text-gray-300 hover:text-neon focus:text-neon hover:border-b-2 focus:border-b-2 border-neon pb-1 transition">
                 Home
