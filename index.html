@@ -40,7 +40,7 @@
 
     <!-- 🌌 Enhanced Responsive Navbar -->
     <nav
-        class="w-full max-w-5xl mx-auto bg-gradient-to-r from-[#0f0f1a] via-[#151522] to-[#0f0f1a] border border-gray-700 p-4 rounded-xl shadow-neon sticky top-0 z-50 backdrop-blur-glass">
+        class="w-full max-w-5xl mx-auto bg-gradient-to-r from-[#0f0f1a] via-[#151522] to-[#0f0f1a] border border-gray-700 p-4 rounded-xl shadow-neon sticky top- z-50 backdrop-blur-glass">
         <div class="flex justify-between items-center">
             <!-- Logo/Title -->
             <h1
@@ -70,27 +70,27 @@
             </div>
         </div>
 
-<!-- Mobile Menu -->
-<div id="mobile-menu"
-    class="absolute right-4 mt-2 hidden flex-col text-sm font-medium bg-gradient-to-br from-[#0f0f1a] via-[#151522] to-[#0f0f1a] border border-gray-700 rounded-lg shadow-neon p-4 w-40 z-50">
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="absolute right-4 mt-2 hidden flex-col text-sm font-medium bg-gradient-to-br from-[#0f0f1a] via-[#151522] to-[#0f0f1a] border border-gray-700 rounded-lg shadow-neon p-4 w-40 z-50">
 
-    <a href="index.html"
-        class="block text-gray-300 hover:text-neon focus:text-neon hover:border-b-2 focus:border-b-2 border-neon pb-1 transition">
-        Home
-    </a>
-    <a href="task.html"
-        class="block text-gray-300 hover:text-neon focus:text-neon hover:border-b-2 focus:border-b-2 border-neon pb-1 transition">
-        Tasks
-    </a>
-    <a href="profile.html"
-        class="block text-gray-300 hover:text-neon focus:text-neon hover:border-b-2 focus:border-b-2 border-neon pb-1 transition">
-        Profile
-    </a>
-    <a href="settings.html"
-        class="block text-gray-300 hover:text-neon focus:text-neon hover:border-b-2 focus:border-b-2 border-neon pb-1 transition">
-        Settings
-    </a>
-</div>
+            <a href="index.html"
+                class="block text-gray-300 hover:text-neon focus:text-neon hover:border-b-2 focus:border-b-2 border-neon pb-1 transition">
+                Home
+            </a>
+            <a href="task.html"
+                class="block text-gray-300 hover:text-neon focus:text-neon hover:border-b-2 focus:border-b-2 border-neon pb-1 transition">
+                Tasks
+            </a>
+            <a href="profile.html"
+                class="block text-gray-300 hover:text-neon focus:text-neon hover:border-b-2 focus:border-b-2 border-neon pb-1 transition">
+                Profile
+            </a>
+            <a href="settings.html"
+                class="block text-gray-300 hover:text-neon focus:text-neon hover:border-b-2 focus:border-b-2 border-neon pb-1 transition">
+                Settings
+            </a>
+        </div>
 
 
     </nav>
@@ -107,16 +107,22 @@
             <p class="text-lg text-gray-300">
                 NeoVerse is your futuristic personal task space — sleek, organized, and distraction-free.
             </p>
-            <a href="task.html"
-                class="inline-block px-8 py-4 bg-gradient-to-r from-cyan-500 to-purpleglow hover:from-cyan-400 hover:to-purple-400 text-white text-lg font-bold rounded shadow-neon transition-transform hover:scale-105 duration-300">
-                🚀 Launch Task Dashboard
-            </a>
+            <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                <a href="task.html"
+                    class="px-6 py-3 font-normal bg-gradient-to-r from-neon to-purpleglow text-white font-bold rounded-xl shadow-neon hover:scale-105 transition-transform">
+                    🚀 Launch Task Dashboard
+                </a>
+                <a href="settings.html"
+                    class="px-6 py-3 min-w-[290px] text-center border border-neon text-neon rounded-xl hover:bg-neon hover:text-black transition">
+                    ⚙ Customize
+                </a>
+            </div>
         </div>
 
         <!-- IMAGE SIDE: 50% -->
         <div class="w-full md:w-1/2 flex justify-center items-center">
             <img src="images/robot.png" alt="Futuristic Task"
-                class="w-full max-w-lg h-auto rounded border-2 border-neon shadow-neon hover:scale-105 transition-transform duration-500" />
+                class="w-full max-w-lg md:min-h-[300px] h-auto rounded border-2 border-neon shadow-neon hover:scale-105 transition-transform duration-500" />
         </div>
     </section>
 
