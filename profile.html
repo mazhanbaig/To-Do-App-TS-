@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-gradient-to-br from-black via-gray-900 to-black text-white">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeoVerse Profile</title>
+
+    <!-- Tailwind CSS -->
+    <link href="/output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        futuristic: ['Orbitron', 'sans-serif'],
+                    },
+                    colors: {
+                        neon: '#00FFFF',
+                        purpleglow: '#8A2BE2',
+                        darkbg: '#0a0a23',
+                        card: 'rgba(255, 255, 255, 0.05)',
+                    },
+                    boxShadow: {
+                        neon: '0 0 6px #00FFFF',
+                        glass: '0 2px 10px rgba(0, 0, 0, 0.3)',
+                        purple: '0 0 6px #8A2BE2',
+                        white: '0 0 6px #ffffff88',
+                    },
+                },
+            },
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body class="min-h-screen font-futuristic flex flex-col items-center px-4 pt-6 pb-28">
+
+    <!-- 🌌 Navbar -->
+    <nav
+        class="w-full max-w-5xl mx-auto bg-gradient-to-r from-[#0f0f1a] via-[#151522] to-[#0f0f1a] border border-gray-700 p-4 rounded-xl shadow-neon sticky top-0 z-50 backdrop-blur">
+        <div class="flex justify-between items-center">
+            <h1
+                class="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-neon to-purpleglow text-transparent bg-clip-text animate-pulse tracking-wider">
+                NeoVerse
+            </h1>
+            <div class="hidden sm:flex gap-4 text-sm sm:text-base font-medium">
+                <a href="index.html" class="text-gray-300 hover:text-neon">Home</a>
+                <a href="task.html" class="text-gray-300 hover:text-neon">Tasks</a>
+                <a href="profile.html" class="text-neon border-b-2 border-neon">Profile</a>
+                <a href="settings.html" class="text-gray-300 hover:text-neon">Settings</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 👤 Profile Section -->
+    <section
+        class="w-full max-w-4xl mt-12 p-6 bg-card rounded-2xl shadow-neon backdrop-blur border border-gray-700 space-y-8">
+
+        <!-- Profile Header -->
+        <div class="flex flex-col sm:flex-row items-center gap-6">
+            <img src="https://i.pravatar.cc/200" alt="User Avatar"
+                class="w-32 h-32 rounded-full border-4 border-neon shadow-neon" />
+            <div class="text-center sm:text-left">
+                <h2 id="name" class="text-3xl font-bold text-neon"></h2>
+                <p id="passion" class="text-gray-400"></p>
+            </div>
+        </div>
+        <!-- Add Edit Button, initially hidden -->
+        <button id="editBtn"
+            class="mt-4 px-4 py-2 border border-neon rounded-lg text-neon hover:bg-neon hover:text-black transition hidden">
+            ✏️ Edit Profile
+        </button>
+
+
+        <!-- Profile Info Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+            <div class="bg-gray-900/60 p-4 rounded-xl border border-neon backdrop-blur hover:shadow-neon transition">
+                <h3 class="text-neon font-semibold text-sm">Total Missions</h3>
+                <p class="text-2xl font-bold"></p>
+            </div>
+            <div
+                class="bg-gray-900/60 p-4 rounded-xl border border-purpleglow backdrop-blur hover:shadow-purple transition">
+                <h3 class="text-purpleglow font-semibold text-sm">Completed</h3>
+                <p class="text-2xl font-bold"></p>
+            </div>
+            <div
+                class="bg-gray-900/60 p-4 rounded-xl border border-gray-500 backdrop-blur hover:shadow-white transition">
+                <h3 class="text-gray-300 font-semibold text-sm">Pending</h3>
+                <p class="text-2xl font-bold"></p>
+            </div>
+        </div>
+
+        <!-- Edit Profile Form -->
+        <form class="space-y-4">
+            <div>
+                <label class="block text-gray-300 text-sm mb-1">Display Name</label>
+                <input type="text" value=""
+                    class="w-full px-4 py-3 rounded-lg bg-black bg-opacity-30 border border-neon text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-neon" />
+            </div>
+            <div>
+                <label class="block text-gray-300 text-sm mb-1">Email</label>
+                <input type="email" value=""
+                    class="w-full px-4 py-3 rounded-lg bg-black bg-opacity-30 border border-neon text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-neon" />
+            </div>
+            <div>
+                <label class="block text-gray-300 text-sm mb-1">Bio</label>
+                <textarea rows="3" placeholder="Write something about yourself..."
+                    class="w-full px-4 py-3 rounded-lg bg-black bg-opacity-30 border border-neon text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-neon"></textarea>
+            </div>
+            <button type="submit"
+                class="savebtn w-full px-6 py-3 bg-gradient-to-r from-neon to-purpleglow text-white rounded-lg shadow-neon hover:scale-105 transition">
+                💾 Save Changes
+            </button>
+        </form>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full fixed bottom-0 text-center py-4 text-xs text-gray-500 bg-black bg-opacity-30 backdrop-blur">
+        © 2025 NeoVerse — All rights reserved.
+    </footer>
+    <script src="profile.js"></script>
+</body>
+
+</html>
